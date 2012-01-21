@@ -1,0 +1,72 @@
+/* Частичный CSS clear */
+.maxposter img{border:0; margin:0;}
+.maxposter a{text-decoration:none;}
+.maxposter h1 {font-family:verdaha;font-weight:bold;font-size:20px;}
+.maxposter h2 {font-family:verdaha;font-weight:bold;font-size:18px;}
+/* Общие для раздла стили */
+.maxposter{width:664px;padding:20px 0px;}
+.maxposter br.clear{clear:both;}
+.maxposter p a {text-decoration:underline;font-size:inherit;}
+
+/* Список автомобилей */
+.maxposter .maxposter-cars .maxposter-list-auto {padding:8px;margin-bottom:1em;overflow:hidden;}
+.maxposter .maxposter-cars .maxposter-list-auto h2 {font-size:14px;padding:0;margin:0;}
+.maxposter .maxposter-cars .maxposter-list-auto h2 a {font-size:14px;}
+.maxposter .maxposter-cars .maxposter-list-auto a {font-weight:bold;text-decoration:underline;cursor:pointer;}
+.maxposter .maxposter-cars .maxposter-list-auto a:hover {text-decoration:none;color:#EB6A00;}
+.maxposter .maxposter-cars .maxposter-odd {background-color:#EFEFEF;}
+.maxposter .maxposter-cars .maxposter-even {background-color:#CFCFCF;}
+.maxposter .maxposter-cars .maxposter-list-auto .maxposter-list-auto-price {color:#F90;font-weight:bold;}
+.maxposter .maxposter-cars .maxposter-list-auto .maxposter-list-auto-thumbnail {float:left;}
+.maxposter .maxposter-cars .maxposter-list-auto .maxposter-list-auto-text {margin-left:160px;}
+
+/* Постраничка */
+.maxposter .pagination {text-align:center;padding-top:10px;}
+.maxposter .pagination ul {display:inline;}
+.maxposter .pagination li{display:inline;list-style:none;background:transparent;padding:3px;margin:1px;color:black;text-align:center;}
+.maxposter .pagination a {color:#B25000;margin:0;padding:0;}
+.maxposter .pagination a:hover {color:black;text-decoration:none;}
+
+/* Форма поиска */
+.maxposter div.search_form {background:#d7d7d7;padding:10px;}
+.maxposter form th{white-space: nowrap; text-align:left;padding-right:10px;}
+.maxposter tr {vertical-align:top;}
+.maxposter .fields th,  .maxposter .fields td{line-height:26px!important;}
+.maxposter input, .maxposter select {margin:3px 0!important;border-width:1px;}
+.maxposter .right div.half{float:left;width:110px;text-align:right!important;margin:0;}
+.maxposter .right .suffix{float:left;margin:0;}
+.maxposter .right input{width:80px;margin:0;}
+.maxposter .left select{width:150px;margin:0;}
+.maxposter .between{width:20px;}
+.maxposter .control {text-align:center;}
+.maxposter .control a{margin-left:10px;text-decoration: underline;}
+.maxposter input {width:100px;}
+.maxposter .error {margin-left:30px;color:red;margin-bottom:10px;}
+
+/* Описание авто */
+.maxposter .maxposter-price {font-size:16px;font-weight:bold;color:#F90;}
+.maxposter .maxposter-auto-key-features {overflow:hidden;margin-bottom:20px;}
+.maxposter .maxposter-auto-features-list {clear:both;margin-left:20px;overflow:hidden;}
+.maxposter .maxposter-auto-key-features .maxposter-auto-feature {width:45%;float:left;}
+.maxposter .maxposter-auto-key-features .maxposter-auto-feature span {width:140px;float:left;font-weight:bold;padding-right:4px;}
+.maxposter .maxposter-auto-options {clear:both;}
+.maxposter .maxposter-auto-options ul {display:block;margin-left:20px;overflow:hidden;}
+.maxposter .maxposter-auto-options ul li {float:left;width:45%;list-style:none;}
+.maxposter .maxposter-auto-description {margin-bottom:20px;}
+
+/* Фото */
+.maxposter #photos {width:644px;float:right;position:relative;padding:10px;background:#d7d7d7;margin-bottom:20px;}
+.maxposter #photos img {border:2px solid #d7d7d7;}
+.maxposter #original img {width:640; height:480;}
+.maxposter #thumbnails a {float:left;}
+.maxposter #thumbnails img {margin:6px 6px 0 0;width:120px;heigth:90px;}
+.maxposter #thumbnails img.active, .maxposter #thumbnails img.current {border-color:white!important;}
+.maxposter #thumbnails img.last {margin-right: 0;}
+
+/* Список Марок-Моделей */
+#rightcolumn .maxposter{width:auto;padding:0;}
+.maxposter ul.marks{display:block;padding:0;}
+.maxposter .marks li{background:none;}
+.maxposter li.mark a{font-weight:bold;}
+.maxposter ul.models{padding-left:10px;}
+.maxposter li.model a{font-weight:normal;}

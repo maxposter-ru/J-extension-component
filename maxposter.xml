@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="1.6" method="upgrade">
+    <name>COM_MAXPOSTER</name>
+    <creationDate>2012-01-20</creationDate>
+    <author>Святослав Астахов</author>
+    <authorEmail>astahov@maxposter.ru</authorEmail>
+    <authorUrl>http://maxposter.ru</authorUrl>
+    <copyright>Copyright 2010, All rights reserved.</copyright>
+    <license>GNU/GPL</license>
+    <version>17.0.1</version>
+    <releaseDate>2011-10-19</releaseDate>
+    <releaseType>Beta</releaseType>
+    <downloadUrl>http://maxposter.ru</downloadUrl>
+    <description><![CDATA[Вывод каталога авто.]]></description>
+
+    <files folder="site">
+        <filename>index.html</filename>
+        <filename>maxposter.php</filename>
+        <filename>router.php</filename>
+        <filename>controller.php</filename>
+        <filename>lib/client/maxClient.php</filename>
+        <!-- xsl templates -->
+        <folder>lib/xsl</folder>
+        <!-- assets -->
+        <filename>assets/img/no_photo_120x90.gif</filename>
+        <filename>assets/css/style.css</filename>
+        <filename>assets/js/mt11_linked_models.js</filename>
+        <filename>assets/js/mt11_2step_photo.js</filename>
+        <filename>cache/index.html</filename>
+        <filename>cache/html/index.html</filename>
+        <filename>cache/xml/index.html</filename>
+        <filename>helpers/helper.php</filename>
+        <folder>photo</folder>
+        <folder>views</folder>
+    </files>
+
+    <administration>
+        <menu>COM_MAXPOSTER_MENU</menu>
+
+        <files folder="admin">
+            <filename>index.html</filename>
+            <filename>maxposter.php</filename>
+            <filename>access.xml</filename>
+            <filename>config.xml</filename>
+            <filename>controller.php</filename>
+            <folder>views</folder>
+        </files>
+
+        <languages folder="admin">
+            <language tag="ru-RU">language/ru-RU/ru-RU.com_maxposter.ini</language>
+            <language tag="ru-RU">language/ru-RU/ru-RU.com_maxposter.sys.ini</language>
+        </languages>
+    </administration>
+
+    <dependencies>
+        <dependency type="library" name="maxposter" operator=">=" version="1.0" />
+    </dependencies>
+
+    <updateservers>
+        <server type="collection" priority="1" name="MaxPoster on GitHub">http://maxposter-ru.github.com/J-extensions/list.xml</server>
+        <server type="extension" priority="2" name="MaxPoster on GitHub component">http://maxposter-ru.github.com/J-extensions/component.xml</server>
+        <server type="collection" priority="1" name="MaxPoster on BitBucket">https://bitbucket.org/maxposter/jextensions/raw/gh-pages/list.xml</server>
+        <server type="extension" priority="2" name="MaxPoster on GitHub component">https://bitbucket.org/maxposter/jextensions/raw/gh-pages/component.xml</server>
+    </updateservers>
+
+    <!-- Стандартные настройки компонента при установке -->
+    <!-- http://docs.joomla.org/Component_parameters#1._Component-wide_default_parameters_3 -->
+    <config>
+        <fields>
+            <fieldset>
+                <field name="dealer_id" default="5" />
+                <field name="password" default="555" />
+                <field name="api_version" default="1" />
+                <!-- Постраничка -->
+                <field name="rows_by_page" default="20" />
+                <field name="rows_by_request" default="100" />
+                <!-- поиск -->
+                <field name="prefix" default="max_" />
+            </fieldset>
+        </fields>
+    </config>
+</extension>
