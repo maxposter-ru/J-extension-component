@@ -1,15 +1,10 @@
 <?php
 // no direct access
-defined('_JEXEC') or die('Restricted access');
+defined('_JEXEC') or die;
 
-// Require the base controller
-require_once (JPATH_COMPONENT.DS.'controller.php');
+// Require the com_content helper library
+jimport('joomla.application.component.controller');
 
-// Create the controller
-$controller = new MaxPosterController();
-
-// Perform the Request task
+$controller = JController::getInstance('MaxPoster');
 $controller->execute(JRequest::getCmd('task'));
-
-// Redirect if set by the controller
 $controller->redirect();

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+    <layout title="COM_MAXPOSTER_VIEW_DEFAULT_TITLE">
+        <message>COM_MAXPOSTER_VIEW_DEFAULT_DESC</message>
+    </layout>
+    <fields name="params">
+        <fieldset name="base" label="COM_MAXPOSTER_BASE_LABEL" description="">
+            <field name="dealer_id" type="text" default="5" label="Код автосалона" description="Код автосалона" size="30" />
+            <field name="password" type="text" default="555" label="Пароль" description="Пароль для доступа к данным" size="30" />
+        </fieldset>
+        <!-- Постраничка -->
+        <fieldset name="pager" label="COM_MAXPOSTER_PAGER_LABEL" description="">
+            <field name="rows_by_page" type="text" default="20" label="Объявлений на странице" description="Количество объявлений на странице со списком авто" size="2" />
+            <field name="rows_by_request" type="text" default="100" label="Загружать с сервера N объявлений" description="Количество кешируемых за один запрос объявлений. Должно быть кратно кол-ву объявлений на странице." size="4" />
+            <field name="pager_links" type="string" filter="INT" default="10" label="Количество страниц" description="Количество ссылок на страницы вокруг текущей" size="2" />
+        </fieldset>
+        <!-- поиск -->
+        <fieldset name="search" label="COM_MAXPOSTER_SEARCH_LABEL" description="">
+            <field name="prefix" type="text" default="max_" label="Префикс" description="Префикс для отделения параметров сервиса от прочих параметров страницы" size="10" />
+            <field name="show_search" type="radio" default="1" label="COM_MAXPOSTER_SEARCH_SHOW_LABEL" description="COM_MAXPOSTER_SHOW_SEARCH_DESC">
+                <option value="0">JNO</option>
+                <option value="1">JYES</option>
+            </field>
+        </fieldset>
+    </fields>
+</metadata>

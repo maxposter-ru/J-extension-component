@@ -7,8 +7,8 @@
     <authorUrl>http://maxposter.ru</authorUrl>
     <copyright>Copyright 2010, All rights reserved.</copyright>
     <license>GNU/GPL</license>
-    <version>17.0.1</version>
-    <releaseDate>2011-10-19</releaseDate>
+    <version>17.0.2</version>
+    <releaseDate>2012-01-28</releaseDate>
     <releaseType>Beta</releaseType>
     <downloadUrl>http://maxposter.ru</downloadUrl>
     <description><![CDATA[Вывод каталога авто.]]></description>
@@ -18,21 +18,17 @@
         <filename>maxposter.php</filename>
         <filename>router.php</filename>
         <filename>controller.php</filename>
-        <filename>lib/client/maxClient.php</filename>
-        <!-- xsl templates -->
-        <folder>lib/xsl</folder>
-        <!-- assets -->
-        <filename>assets/img/no_photo_120x90.gif</filename>
-        <filename>assets/css/style.css</filename>
-        <filename>assets/js/mt11_linked_models.js</filename>
-        <filename>assets/js/mt11_2step_photo.js</filename>
-        <filename>cache/index.html</filename>
-        <filename>cache/html/index.html</filename>
-        <filename>cache/xml/index.html</filename>
-        <filename>helpers/helper.php</filename>
-        <folder>photo</folder>
+        <folder>helpers</folder>
         <folder>views</folder>
+        <filename>lib/client/maxClient.php</filename>
     </files>
+    <media destination="maxposter" folder="media">
+        <filename>index.html</filename>
+        <folder>css</folder>
+        <folder>js</folder>
+        <folder>images</folder>
+        <folder>photos</folder>
+    </media>
 
     <administration>
         <menu>COM_MAXPOSTER_MENU</menu>
@@ -60,7 +56,7 @@
         <server type="collection" priority="1" name="MaxPoster on GitHub">http://maxposter-ru.github.com/J-extensions/list.xml</server>
         <server type="extension" priority="2" name="MaxPoster on GitHub component">http://maxposter-ru.github.com/J-extensions/component.xml</server>
         <server type="collection" priority="1" name="MaxPoster on BitBucket">https://bitbucket.org/maxposter/jextensions/raw/gh-pages/list.xml</server>
-        <server type="extension" priority="2" name="MaxPoster on GitHub component">https://bitbucket.org/maxposter/jextensions/raw/gh-pages/component.xml</server>
+        <server type="extension" priority="2" name="MaxPoster on BitBucket component">https://bitbucket.org/maxposter/jextensions/raw/gh-pages/component.xml</server>
     </updateservers>
 
     <!-- Стандартные настройки компонента при установке -->
@@ -76,6 +72,7 @@
                 <field name="rows_by_request" default="100" />
                 <!-- поиск -->
                 <field name="prefix" default="max_" />
+                <field name="show_search" default="1" />
             </fieldset>
         </fields>
     </config>

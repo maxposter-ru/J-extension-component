@@ -1,6 +1,4 @@
 <?php
-//require_once(JPATH_BASE.DS.'components'.DS.'com_maxposter'.DS.'lib'.DS.'api'.DS.'lib'.DS.'maxCacheHtmlClient.php');
-
 /**
  * Клиент
  */
@@ -130,7 +128,7 @@ class maxClient extends maxCacheHtmlClient
         */
         $maxPage = (int) ceil($pager->item(0)->getAttribute('items_total') / $this->getOption('rows_by_page'));
         if ($maxPage < $this->xslParams['page']) {
-            throw maxException::getException(maxException::ERR_404);
+            //throw maxException::getException(maxException::ERR_404);
         }
         break;
       case 'error':
@@ -163,4 +161,38 @@ class maxClient extends maxCacheHtmlClient
     }
     return $ret;
   }
+
+
+    /**
+     * Идентификатор запроса
+     *
+     * @return string
+     */
+    public function getRequestCacheId()
+    {
+        return $this->getXmlCacheHashKey($this->getRequestThemeName());
+    }
+
+
+    /**
+     * Идентификатор запроса
+     *
+     * @return string
+     */
+    public function getHtmlCacheId()
+    {
+        return $this->getHtmlCacheHashKey($this->getRequestThemeName());
+    }
+
+
+    /**
+     * Время жизни кеша
+     *
+     * @return array
+     */
+    public function getCacheTimes()
+    {
+        return $this->getResponseHeaders();
+    }
+
 }

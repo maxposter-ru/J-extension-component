@@ -1,0 +1,102 @@
+.maxposter {
+    position:relative;
+    overflow:hidden;
+    }
+
+/**
+ * Постраничная навигация
+ */
+.maxposter-pages {
+    text-align:center;
+    overflow:hidden;
+    padding:0 6em 0 2em;
+    }
+    .maxposter-pages .maxposter-paginator {
+        text-align:center;
+        display:inline;
+        display:inline-block;
+        margin:1em 0;
+        }
+        .maxposter-pages .maxposter-paginator li {
+            display:inline;
+            display:inline-block;
+            margin:0 .5em;
+            list-style:none;
+            }
+            .maxposter-pages .maxposter-paginator a:link,
+            .maxposter-pages .maxposter-paginator span.current {
+                display:block;
+                text-decoration:none;
+                }
+
+/**
+ * Список авто
+ */
+.maxposter .maxposter-item {
+    background:transparent;
+    overflow:hidden;
+    }
+    .maxposter .maxposter-item .maxposter-photo {
+        float:left;
+        }
+    .maxposter .maxposter-item .maxposter-text {
+        margin-left:135px;
+        }
+        .maxposter .maxposter-item .maxposter-text h1,
+        .maxposter .maxposter-item .maxposter-text h2,
+        .maxposter .maxposter-item .maxposter-text h3 {
+            margin-top:0;
+            }
+        .maxposter .maxposter-item .maxposter-text .maxposter-price {
+            font-size:1.2em;
+            font-weight:bold;
+            }
+
+/**
+ * Авто
+ */
+.maxposter .maxposter-auto-info {
+    width:auto;
+    min-width:36em;
+    }
+    .maxposter .maxposter-auto-info dl {
+        overflow:hidden;
+        margin:auto 0;
+        }
+    .maxposter .maxposter-auto-info dt {
+        margin:0;
+        float:left;
+        clear:both;
+        width:25%;
+        min-width:12em;
+        padding:.6em 4% .6em 1em;
+        line-height:1em;
+        }
+    .maxposter .maxposter-auto-info dd {
+        margin:0;
+        padding:.6em 0 .6em 1%;
+        line-height:1em;
+        }
+    #maxposter-auto-photo-big {
+        text-align:center;
+        }
+        #maxposter-auto-photo-big img {
+            margin:0 auto;
+            border:1px solid;
+            }
+    #maxposter-auto-photos-thumbnails {
+        width:564px;
+        margin:0 auto;
+        padding:5px 1px 0;
+        overflow:hidden;
+        }
+        #maxposter-auto-photos-thumbnails a {
+            float:left;
+            }
+            #maxposter-auto-photos-thumbnails a img {
+                margin:5px 21px 5px 1px;
+                border:2px solid;
+                }
+            #maxposter-auto-photos-thumbnails a.last img {
+                margin-right:1px;
+                }
