@@ -43,9 +43,9 @@ $this->pager = $xpath->query('/response/pager')->item(0);
     <?php echo $this->loadTemplate('error'); ?>
     <?php
     if (defined('JDEBUG') && constant('JDEBUG')) {
-        ?><div class="maxposter-debug profiler"><code><pre><?php
-            echo $this->xml->saveXml();
-        ?></pre></code></div><?php
+        ?><div class="maxposter-debug profiler"><pre><code><?php
+            echo $this->escape($this->xml->saveXml());
+        ?></code></pre></div><?php
     }
     ?>
 <?php # список ?>

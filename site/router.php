@@ -45,9 +45,16 @@ function MaxPosterParseRoute($segments)
     $vars = array();
 
     if (!empty($segments['0']) && empty($segments['1'])) {
-        $vars['view'] = 'car';
-        $vars['vehicle_id'] = (int) $segments['0'];
+        if ($segments['0'] == 'list') {
+            $vars['view'] = 'list';
+        } else {
+            $vars['view'] = 'car';
+            $vars['vehicle_id'] = (int) $segments['0'];
+        }
     } elseif (!empty($segments['0']) && !empty($segments['1'])) {
+        if ($segments['0'] == 'car') {
+            $vars['view'] = 'car';
+        }
         $vars['vehicle_id'] = (int) $segments['1'];
     } else {
         $vars['view'] = 'list';

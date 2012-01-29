@@ -13,7 +13,7 @@
     <!-- поиск -->
     <fieldset name="search" label="COM_MAXPOSTER_SEARCH_LABEL" description="COM_MAXPOSTER_SEARCH_DESC">
         <field name="prefix" type="text" default="max_" label="Префикс" description="Префикс для отделения параметров сервиса от прочих параметров страницы" size="10" />
-        <field name="show_search" type="radio" default="1" label="COM_MAXPOSTER_SEARCH_SHOW_LABEL" description="COM_MAXPOSTER_SHOW_SEARCH_DESC">
+        <field name="show_search" type="radio" default="1" label="COM_MAXPOSTER_SEARCH_SHOW_SEARCH_LABEL" description="COM_MAXPOSTER_SEARCH_SHOW_SEARCH_DESC">
             <option value="0">JNO</option>
             <option value="1">JYES</option>
         </field>

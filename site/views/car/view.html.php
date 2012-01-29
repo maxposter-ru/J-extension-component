@@ -154,15 +154,19 @@ class MaxposterViewCar extends JView
                 $params->set('error', 404);
                 $this->setTitle('Ошибка 404. У нас нет ответа на Ваш запрос.');
                 break;
+            default:
+                $vehicle = $xml->getElementsByTagName('vehicle')->item(0);
+                $this->setTitle(sprintf(
+                    '%s %s %4d г.в.',
+                    $vehicle->getElementsByTagName('mark')->item(0)->nodeValue,
+                    $vehicle->getElementsByTagName('model')->item(0)->nodeValue,
+                    $vehicle->getElementsByTagName('year')->item(0)->nodeValue
+                ));
+                $this->loadHelper('vehicle');
+                $this->assignRef('vhelper', new MaxPosterVehicleHelper($xml, $vehicle));
+                break;
         }
 
-        $vehicle = $xml->getElementsByTagName('vehicle')->item(0);
-        $this->setTitle(sprintf(
-            '%s %s %4d г.в.',
-            $vehicle->getElementsByTagName('mark')->item(0)->nodeValue,
-            $vehicle->getElementsByTagName('model')->item(0)->nodeValue,
-            $vehicle->getElementsByTagName('year')->item(0)->nodeValue
-        ));
 #        // Добавление js
 #        JHTML::script('mt11_2step_photo.js', 'components/com_maxposter/assets/js/', true);
 #        $document->addScriptDeclaration('window.addEvent("domready", function(){
@@ -171,8 +175,6 @@ class MaxposterViewCar extends JView
 
         $this->assign('xml', $xml);
         //$this->addHelperPath(JPATH_COMPONENT . '/helper');
-        $this->loadHelper('vehicle');
-        $this->assignRef('vhelper', new MaxPosterVehicleHelper($xml, $vehicle));
         $this->assign('cache_id', $client->getHtmlCacheId());
         $this->assign('cache_lifetime', $cache->_getStorage()->_lifetime);
 
