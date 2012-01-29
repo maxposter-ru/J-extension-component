@@ -13,7 +13,7 @@ defined('_JEXEC') or die('Restricted access');
 
 # Output cache - not the best place?
 $this->cache = JFactory::getCache('com_maxposter', 'output');
-$this->cache->setCaching(true);
+$this->cache->setCaching((bool) $this->cache_lifetime);
 $this->cache->setLifeTime($this->cache_lifetime);
 $this->cache->_getStorage()->_lifetime = $this->cache_lifetime;
 

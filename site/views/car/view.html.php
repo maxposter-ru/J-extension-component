@@ -135,16 +135,20 @@ class MaxposterViewCar extends JView
 
         if (!$rawXml = $cache->get($cacheId)) {
             $xml = $client->getXml();
-            list($cacheActualAt, $cacheExpiresAt) = $client->getCacheTimes();
-            $cacheLife = (int) $cacheExpiresAt - time(); # кешируем в секундах
-            $cache->setLifeTime($cacheLife);
-            $cache->_getStorage()->_lifetime = $cacheLife;
-            if ($cacheLife > 1) {
-                $cache->store($xml->saveXml(), $cacheId);
+            $responceId = $xml->getElementsByTagName('response')->item(0)->getAttribute('id');
+            if ('error' != $responceId) {
+                list($cacheActualAt, $cacheExpiresAt) = $client->getCacheTimes();
+                $cacheLife = (int) $cacheExpiresAt - time(); # кешируем в секундах
+                $cache->setLifeTime($cacheLife);
+                $cache->_getStorage()->_lifetime = $cacheLife;
+                if ($cacheLife > 1) {
+                    $cache->store($xml->saveXml(), $cacheId);
+                }
             }
         } else {
             $xml = new DOMDocument();
             $xml->loadXML($rawXml);
+            $responceId = $xml->getElementsByTagName('response')->item(0)->getAttribute('id');
         }
 
         $responceId = $xml->getElementsByTagName('response')->item(0)->getAttribute('id');
@@ -153,6 +157,9 @@ class MaxposterViewCar extends JView
                 JResponse::setHeader('status', '404 Not Found');
                 $params->set('error', 404);
                 $this->setTitle('Ошибка 404. У нас нет ответа на Ваш запрос.');
+                $cache->setCaching(false);
+                $cache->setLifeTime(0);
+                $cache->_getStorage()->_lifetime = 0;
                 break;
             default:
                 $vehicle = $xml->getElementsByTagName('vehicle')->item(0);
