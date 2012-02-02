@@ -95,7 +95,14 @@ class MaxposterViewList extends JView
         $this->assign('page', $page);
         $this->assign('per_page', $params->get('rows_by_page', 20));
 
-        $search = $JInput->get(sprintf('search', $params->get('prefix', '')), array(), 'ARRAY');
+        $search = $JInput->get(sprintf('%ssearch', $params->get('prefix', '')), array(), 'ARRAY');
+        $cleaner = create_function('$search, &$self', '$tmp = array();foreach($search as $k => $v){if(is_array($v)){
+        $res=$self($v,$self);if(count($res)){$tmp[$k]=$res;}
+        }elseif(!empty($v)){
+        $tmp[$k] = $v;
+        }};return $tmp;');
+        $search = $cleaner($search,$cleaner);
+
         $this->assign('search_params', $search);
 
         // Определение, какие данные необходимы от Интернет-сервиса
@@ -146,6 +153,10 @@ class MaxposterViewList extends JView
                 $cache->setCaching(false);
                 $cache->setLifeTime(0);
                 $cache->_getStorage()->_lifetime = 0;
+                break;
+            case 'search_form':
+                $params->set('error', 404);
+                $this->setTitle('По Вашему запросу ничего не найдено.');
                 break;
         }
         // TODO: $xml->getElementsByTagName('search_form')->item(0);

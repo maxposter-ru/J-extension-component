@@ -5,8 +5,8 @@
     </layout>
     <fields name="params">
         <fieldset name="base" label="COM_MAXPOSTER_BASE_LABEL" description="">
-            <field name="dealer_id" type="text" default="5" label="Код автосалона" description="Код автосалона" size="30" />
-            <field name="password" type="text" default="555" label="Пароль" description="Пароль для доступа к данным" size="30" />
+            <field name="dealer_id" type="text" label="Код автосалона" description="Код автосалона" size="30" />
+            <field name="password" type="text" label="Пароль" description="Пароль для доступа к данным" size="30" />
         </fieldset>
         <!-- Постраничка -->
         <fieldset name="pager" label="COM_MAXPOSTER_PAGER_LABEL" description="">
@@ -16,7 +16,6 @@
         </fieldset>
         <!-- поиск -->
         <fieldset name="search" label="COM_MAXPOSTER_SEARCH_LABEL" description="">
-            <field name="prefix" type="text" default="max_" label="Префикс" description="Префикс для отделения параметров сервиса от прочих параметров страницы" size="10" />
             <field name="show_search" type="radio" default="1" label="COM_MAXPOSTER_SEARCH_SHOW_SEARCH_LABEL" description="COM_MAXPOSTER_SEARCH_SHOW_SEARCH_DESC">
                 <option value="0">JNO</option>
                 <option value="1">JYES</option>
