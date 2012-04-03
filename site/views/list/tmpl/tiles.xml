@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+    <layout title="COM_MAXPOSTER_VIEW_TILES_TITLE">
+        <message>COM_MAXPOSTER_VIEW_TILES_DESC</message>
+    </layout>
+    <fields name="params">
+        <!-- Отображение -->
+        <fieldset name="view" label="COM_MAXPOSTER_VIEW_LABEL" description="COM_MAXPOSTER_VIEW_DESC">
+          <field name="view_photo_size_list" type="sql" default="120x90" label="COM_MAXPOSTER_VIEW_PHOTO_SIZE_LIST_LABEL" description="COM_MAXPOSTER_VIEW_PHOTO_SIZE_LIST_DESC" query="SELECT value FROM #__maxposter WHERE name='photo_size'" key_field="value" value_field="value" />
+          <field name="view_photo_size_vehicle_large" type="sql" default="640x480" label="COM_MAXPOSTER_VIEW_PHOTO_SIZE_VEHICLE_LARGE_LABEL" description="COM_MAXPOSTER_VIEW_PHOTO_SIZE_VEHICLE_LARGE_DESC" query="SELECT value FROM #__maxposter WHERE name='photo_size'" key_field="value" value_field="value" />
+          <field name="view_photo_size_vehicle_thumbnail" type="sql" default="120x90" label="COM_MAXPOSTER_VIEW_PHOTO_SIZE_VEHICLE_THUMBNAIL_LABEL" description="COM_MAXPOSTER_VIEW_PHOTO_SIZE_VEHICLE_THUMBNAIL_DESC" query="SELECT value FROM #__maxposter WHERE name='photo_size'" key_field="value" value_field="value" />
+            <field name="items_per_row" type="string" filter="INT" default="3" label="COM_MAXPOSTER_VIEW_ITEMS_PER_ROW_LABEL" description="COM_MAXPOSTER_VIEW_ITEMS_PER_ROW_DESC" size="1" />
+            <field name="tile_show_price" type="radio" default="1" label="COM_MAXPOSTER_VIEW_TILE_SHOW_PRICE_LABEL" description="COM_MAXPOSTER_VIEW_TILE_SHOW_PRICE_DESC">
+                <option value="0">JNO</option>
+                <option value="1">JYES</option>
+            </field>
+            <field name="tile_show_special_icon" type="radio" default="1" label="COM_MAXPOSTER_VIEW_TILE_SHOW_SPECIAL_ICON_LABEL" description="COM_MAXPOSTER_VIEW_TILE_SHOW_SPECIAL_ICON_DESC">
+                <option value="0">JNO</option>
+                <option value="1">JYES</option>
+            </field>
+            <field name="tile_show_priceold" type="radio" default="1" label="COM_MAXPOSTER_VIEW_TILE_SHOW_PRICEOLD_LABEL" description="COM_MAXPOSTER_VIEW_TILE_SHOW_PRICEOLD_DESC">
+                <option value="0">JNO</option>
+                <option value="1">JYES</option>
+            </field>
+            <field name="tile_show_year" type="radio" default="1" label="COM_MAXPOSTER_VIEW_TILE_SHOW_YEAR_LABEL" description="COM_MAXPOSTER_VIEW_TILE_SHOW_YEAR_DESC">
+                <option value="0">JNO</option>
+                <option value="1">JYES</option>
+            </field>
+        </fieldset>
+        <!-- основные -->
+        <fieldset name="base" label="COM_MAXPOSTER_BASE_LABEL" description="">
+            <field name="dealer_id" type="text" label="Код автосалона" description="Код автосалона" size="30" />
+            <field name="password" type="text" label="Пароль" description="Пароль для доступа к данным" size="30" />
+        </fieldset>
+        <!-- Постраничка -->
+        <fieldset name="pager" label="COM_MAXPOSTER_PAGER_LABEL" description="">
+            <field name="rows_by_page" type="text" default="20" label="Объявлений на странице" description="Количество объявлений на странице со списком авто" size="2" />
+            <field name="rows_by_request" type="text" default="100" label="Загружать с сервера N объявлений" description="Количество кешируемых за один запрос объявлений. Должно быть кратно кол-ву объявлений на странице." size="4" />
+            <field name="pager_links" type="string" filter="INT" default="10" label="Количество страниц" description="Количество ссылок на страницы вокруг текущей" size="2" />
+        </fieldset>
+        <!-- поиск -->
+        <fieldset name="search" label="COM_MAXPOSTER_SEARCH_LABEL" description="">
+            <field name="show_search" type="radio" default="1" label="COM_MAXPOSTER_SEARCH_SHOW_SEARCH_LABEL" description="COM_MAXPOSTER_SEARCH_SHOW_SEARCH_DESC">
+                <option value="0">JNO</option>
+                <option value="1">JYES</option>
+            </field>
+        </fieldset>
+    </fields>
+</metadata>

@@ -1,3 +1,12 @@
+v17.0.3
+=======
+
+* Added new list layout type - tiles
+* Created database storage to keep available photo sizes
+* Layout override enabled for list view
+* Show error page when there is no vehicles in responce
+* Fixed not all pager links are showing
+
 v17.0.2
 =======
 

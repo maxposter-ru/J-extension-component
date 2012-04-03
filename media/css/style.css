@@ -53,6 +53,69 @@
             }
 
 /**
+ * Список авто "Плиткой"
+ */
+.maxposter .maxposter-tile-row {
+    overflow:hidden;
+    }
+    .maxposter .maxposter-tile-item {
+        float:left;
+        }
+        .maxposter .maxposter-tile-item-last {
+            margin-right:0;
+            }
+        .maxposter .maxposter-tile-item .maxposter-photo,
+        .maxposter .maxposter-tile-item .maxposter-text {
+            text-align:center;
+            position:relative;
+            margin:10px;
+            }
+            .maxposter .maxposter-tile-item .maxposter-photo a {
+                display:block;
+                position:relative;
+                margin:0 auto;
+                }
+                .maxposter .maxposter-tile-item .maxposter-photo a .maxposter-icon-special {
+                    position:absolute;
+                    right:-5px;
+                    top:-5px;
+                    width:10px;
+                    height:10px;
+                    z-index:9999;
+                    }
+        .maxposter .maxposter-tile-item .maxposter-text p {
+            white-space:nowrap;
+            text-align:center;
+            font-size:1em;
+            line-height:140%;
+            margin:0;padding:0;
+            }
+        .maxposter .maxposter-tile-item .maxposter-text h3 {
+            position:relative;
+            text-align:center;
+            }
+            .maxposter .maxposter-tile-item .maxposter-text h3 a {
+                white-space:nowrap;
+                }
+        .maxposter .maxposter-tile-item .maxposter-text h3 > span {
+            background:transparent;
+            position:absolute;
+            right:0;
+            top:0;
+            width:20px;
+            height:100%;
+            z-index:9999;
+            }
+        .maxposter .maxposter-tile-item .maxposter-text .maxposter-price {
+            font-size:1.3em;
+            }
+        .maxposter .maxposter-tile-item .maxposter-text .maxposter-previous-price {
+            text-decoration:line-through;
+            }
+        .maxposter .maxposter-tile-item .maxposter-text .maxposter-previous-price-placeholder {
+            }
+
+/**
  * Авто
  */
 .maxposter .maxposter-auto-info {

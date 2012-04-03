@@ -21,7 +21,7 @@ $page = $this->page;
     <ul class="maxposter-paginator">
     <?php $query = JUri::buildQuery(array(sprintf('%ssearch', $this->params->get('prefix', '')) => $this->search_params)) ?>
     <?php # first page ?>
-    <?php if ($pager_pages > $this->params->get('pager_links', 10)) : ?>
+    <?php if ($pager_pages > floor($this->params->get('pager_links', 10)/2)+1) : ?>
         <?php if ($page > 1) : ?>
             <li><a href="<?php echo JRoute::_(sprintf('index.php?option=com_maxposter&view=list%s', ($query ? '&'.$query : ''))) ?>"><?php echo JText::_('JLIB_HTML_START') ?></a></li>
             <?php if ($page-1 == 1) : ?>
@@ -44,7 +44,7 @@ $page = $this->page;
         </li>
     <?php endfor ?>
     <?php # last page ?>
-    <?php if ($pager_pages > $this->params->get('pager_links', 10)) : ?>
+    <?php if ($pager_pages > floor($this->params->get('pager_links', 10)/2)+1) : ?>
         <?php if ($page < $pager_pages) : ?>
             <li><a href="<?php echo JRoute::_(sprintf('index.php?option=com_maxposter&view=list%s&page=%d', ($query ? '&'.$query : ''), $page+1)) ?>"><?php echo JText::_('JNEXT') ?></a></li>
             <li><a href="<?php echo JRoute::_(sprintf('index.php?option=com_maxposter&view=list%s&page=%d', ($query ? '&'.$query : ''), $pager_pages)) ?>"><?php echo JText::_('JLIB_HTML_END') ?></a></li>

@@ -29,20 +29,34 @@ if ($Itemid) {
     $menuparams = $menu->getParams($Itemid);
     $params->merge($menuparams);
 }
-if ($params instanceof JRegistry) {
-    $params = $params->toArray();
+
+// FIXME: перенести в хелпер
+// Доступные размеры фотографий
+$db = JFactory::getDBO();
+$query = "SELECT id, value FROM #__maxposter WHERE `name`= 'photo_size' ORDER BY id";
+$db->setQuery($query, 0, $limit=100);
+$rows = $db->loadObjectList();
+
+$photoSize = array();
+foreach ($rows as $row) {
+    list ($width, $height) = explode('x', $row->value);
+    $photoSize[$row->value] = array(
+        'width'  => $width,
+        'height' => $height,
+    );
 }
 
 jimport('maxposter.maxThumbnail');
 
 $maxThumb = new maxThumbnail(array_merge(array(
-  'photo_dir' => dirname(__FILE__) . '/cache', # TODO: в настройки передавать результат работы хелпера
-  // а вот эти параметры и правда бы хотелось в настройки вынести
-  'allowed_photo_sizes' => array(
-    '640x480'  => array('width' => 640, 'height' => 480),
-    '120x90'   => array('width' => 120, 'height' =>  90),
-  )
-), $params));
+    'photo_dir' => dirname(__FILE__) . '/cache', # TODO: в настройки передавать результат работы хелпера
+    // для больших фото - orig, для маленьких - original (640x480)
+    'source_photo_url' => 'http://www.maxposter.ru/photo/%s/%s/' . ($params->get('view_photo_source_original', 0) ? 'orig' : 'original') . '/%s',
+    'allowed_photo_sizes' => array_merge(array(
+        '640x480'  => array('width' => 640, 'height' => 480),
+        '120x90'   => array('width' => 120, 'height' =>  90),
+    ), $photoSize),
+), $params->toArray()));
 
 // TODO: сделать очистку кеша по времени модификации файла, очищать старше чем - для крона
 $maxThumb->getPhoto($_SERVER['REQUEST_URI']);

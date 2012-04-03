@@ -7,8 +7,8 @@
     <authorUrl>http://maxposter.ru</authorUrl>
     <copyright>Copyright 2010, All rights reserved.</copyright>
     <license>GNU/GPL</license>
-    <version>17.0.2.3</version>
-    <releaseDate>2012-02-02</releaseDate>
+    <version>17.0.3</version>
+    <releaseDate>2012-04-03</releaseDate>
     <releaseType>Beta</releaseType>
     <downloadUrl>http://maxposter.ru</downloadUrl>
     <description><![CDATA[Вывод каталога авто.]]></description>
@@ -30,8 +30,31 @@
         <folder>photos</folder>
     </media>
 
+    <install>
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install.sql</file>
+            <file driver="mysqli" charset="utf8">sql/install.sql</file>
+        </sql>
+    </install>
+    <uninstall>
+        <sql>
+            <file driver="mysql" charset="utf8">sql/uninstall.sql</file>
+            <file driver="mysqli" charset="utf8">sql/uninstall.sql</file>
+        </sql>
+    </uninstall>
+    <update>
+        <schemas>
+            <schemapath type="mysql">sql/updates</schemapath>
+            <schemapath type="mysqli">sql/updates</schemapath>
+        </schemas>
+    </update>
+    <scriptfile>updater.php</scriptfile>
+
     <administration>
         <menu>COM_MAXPOSTER_MENU</menu>
+        <submenu>
+            <menu task="configuration.edit">COM_MAXPOSTER_CONFIGURATION</menu>
+        </submenu>
 
         <files folder="admin">
             <filename>index.html</filename>
@@ -40,6 +63,7 @@
             <filename>config.xml</filename>
             <filename>controller.php</filename>
             <folder>views</folder>
+            <folder>sql</folder>
         </files>
 
         <languages folder="admin">
@@ -49,7 +73,7 @@
     </administration>
 
     <dependencies>
-        <dependency type="library" name="maxposter" operator=">=" version="1.0" />
+        <dependency type="library" name="maxposter" operator=">=" version="1.2" />
     </dependencies>
 
     <updateservers>
@@ -66,6 +90,12 @@
             <fieldset>
                 <field name="dealer_id" default="5" />
                 <field name="password" default="555" />
+                <!-- Отображение -->
+                <field name="view_photo_source_original" default="0" />
+                <field name="view_photo_size_list" default="120x90" />
+                <field name="view_photo_size_vehicle_large" default="640x480" />
+                <field name="view_photo_size_vehicle_thumbnail" default="120x90" />
+                <!-- версия АПИ -->
                 <field name="api_version" default="1" />
                 <!-- Постраничка -->
                 <field name="rows_by_page" default="20" />

@@ -4,6 +4,16 @@
         <field name="dealer_id" type="text" default="5" label="Код автосалона" description="Код автосалона" size="30" />
         <field name="password" type="text" default="555" label="Пароль" description="Пароль для доступа к данным" size="30" />
     </fieldset>
+    <!-- Отображение -->
+    <fieldset name="view" label="COM_MAXPOSTER_VIEW_LABEL" description="">
+        <field name="view_photo_source_original" type="radio" default="0" label="COM_MAXPOSTER_VIEW_PHOTO_SOURCE_LABEL" description="COM_MAXPOSTER_VIEW_PHOTO_SOURCE_DESC">
+            <option value="0">JNO</option>
+            <option value="1">JYES</option>
+        </field>
+        <field name="view_photo_size_list" type="sql" default="120x90" label="COM_MAXPOSTER_VIEW_PHOTO_SIZE_LIST_LABEL" description="COM_MAXPOSTER_VIEW_PHOTO_SIZE_LIST_DESC" query="SELECT value FROM #__maxposter WHERE name='photo_size'" key_field="value" value_field="value" />
+        <field name="view_photo_size_vehicle_large" type="sql" default="640x480" label="COM_MAXPOSTER_VIEW_PHOTO_SIZE_VEHICLE_LARGE_LABEL" description="COM_MAXPOSTER_VIEW_PHOTO_SIZE_VEHICLE_LARGE_DESC" query="SELECT value FROM #__maxposter WHERE name='photo_size'" key_field="value" value_field="value" />
+        <field name="view_photo_size_vehicle_thumbnail" type="sql" default="120x90" label="COM_MAXPOSTER_VIEW_PHOTO_SIZE_VEHICLE_THUMBNAIL_LABEL" description="COM_MAXPOSTER_VIEW_PHOTO_SIZE_VEHICLE_THUMBNAIL_DESC" query="SELECT value FROM #__maxposter WHERE name='photo_size'" key_field="value" value_field="value" />
+    </fieldset>
     <!-- Постраничка -->
     <fieldset name="pager" label="COM_MAXPOSTER_PAGER_LABEL" description="COM_MAXPOSTER_PAGER_DESC">
         <field name="rows_by_page" type="text" default="20" label="Объявлений на странице" description="Количество объявлений на странице со списком авто" size="2" />
@@ -14,12 +24,12 @@
     <fieldset name="search" label="COM_MAXPOSTER_SEARCH_LABEL" description="COM_MAXPOSTER_SEARCH_DESC">
         <field name="prefix" type="text" default="max_" label="Префикс" description="Префикс для отделения параметров сервиса от прочих параметров страницы" size="10" />
         <field name="show_search" type="radio" default="1" label="COM_MAXPOSTER_SEARCH_SHOW_SEARCH_LABEL" description="COM_MAXPOSTER_SEARCH_SHOW_SEARCH_DESC">
-            <option value="0">JNO</option>
-            <option value="1">JYES</option>
+            <option value="0">JHIDE</option>
+            <option value="1">JSHOW</option>
         </field>
     </fieldset>
     <fieldset name="system" label="COM_MAXPOSTER_SYSTEM_LABEL" description="COM_MAXPOSTER_SYSTEM_DESC">
-        <field name="api_version" type="text" default="1" label="Версия API" description="Номер используемой версии API" size="2" />
+        <field name="api_version" type="text" default="1" label="Версия API" description="Номер используемой версии API" size="2" first="0" last="1" step="1" />
     </fieldset>
     <fieldset name="permissions" label="JCONFIG_PERMISSIONS_LABEL" description="JCONFIG_PERMISSIONS_DESC">
         <field name="rules" type="rules" label="JCONFIG_PERMISSIONS_LABEL" validate="rules" filter="rules" component="com_maxposter" section="component" />

@@ -84,6 +84,12 @@ class MaxposterViewList extends JView
         $params = $this->app->getParams();
         $this->assignRef('params', $params);
 
+        // Check for layout override
+        $active = JFactory::getApplication()->getMenu()->getActive();
+        if (isset($active->query['layout'])) {
+            $this->setLayout($active->query['layout']);
+        }
+
         $this->setDocument();
         $this->setStylesheets();
 
@@ -157,6 +163,12 @@ class MaxposterViewList extends JView
             case 'search_form':
                 $params->set('error', 404);
                 $this->setTitle('По Вашему запросу ничего не найдено.');
+                break;
+            case 'vehicles':
+                if (!$xml->getElementsByTagName('vehicles')->item(0)->hasChildNodes()) {
+                    $params->set('error', 404);
+                    $this->setTitle('По Вашему запросу ничего не найдено.');
+                }
                 break;
         }
         // TODO: $xml->getElementsByTagName('search_form')->item(0);
