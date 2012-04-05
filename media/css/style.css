@@ -74,6 +74,7 @@
                 display:block;
                 position:relative;
                 margin:0 auto;
+                overflow:hidden;
                 }
                 .maxposter .maxposter-tile-item .maxposter-photo a .maxposter-icon-special {
                     position:absolute;
@@ -93,6 +94,7 @@
         .maxposter .maxposter-tile-item .maxposter-text h3 {
             position:relative;
             text-align:center;
+            overflow:hidden;
             }
             .maxposter .maxposter-tile-item .maxposter-text h3 a {
                 white-space:nowrap;
