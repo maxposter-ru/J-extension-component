@@ -6,6 +6,8 @@
     </fieldset>
     <!-- Отображение -->
     <fieldset name="view" label="COM_MAXPOSTER_VIEW_LABEL" description="">
+        <field name="view_layout" type="componentlayout" extension="com_maxposter" view="list" useglobal="true" label="COM_MAXPOSTER_VIEW_ALT_LAYOUT_LABEL" description="COM_MAXPOSTER_VIEW_ALT_LAYOUT_DESCR" />
+        <field name="view_page_heading" type="text" label="Заголовок по умолчанию" size="120" />
         <field name="view_photo_source_original" type="radio" default="0" label="COM_MAXPOSTER_VIEW_PHOTO_SOURCE_LABEL" description="COM_MAXPOSTER_VIEW_PHOTO_SOURCE_DESC">
             <option value="0">JNO</option>
             <option value="1">JYES</option>

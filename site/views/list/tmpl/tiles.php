@@ -28,14 +28,16 @@ $this->pager = $xpath->query('/response/pager')->item(0);
 ?>
 <div id="maxposter" class="maxposter<?php echo $this->escape($this->params->get('pageclass_sfx', '')); ?>">
 <?php # заголовок h1 на странице ?>
-<?php if ($this->params->get('show_page_heading', 1)) : ?>
-<h1>
+<?php if ($this->params->get('show_page_heading', 1) && !$this->params->get('error', false)) : ?>
+<h1 class="componentheading">
     <?php if ($this->escape($this->params->get('page_heading'))) :?>
         <?php echo $this->escape($this->params->get('page_heading')); ?>
     <?php else : ?>
         <?php echo $this->escape($this->params->get('page_title')); ?>
     <?php endif; ?>
 </h1>
+<?php else : ?>
+    <h1 class="componentheading">Ошибка</h1>
 <?php endif; ?>
 
 <?php # 404 ошибка - нет данных в запросе поиска ?>

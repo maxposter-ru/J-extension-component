@@ -29,9 +29,9 @@ class MaxposterViewList extends JView
     protected function setTitle($title)
     {
         if ($this->app->getCfg('sitename_pagetitles', 0) == 1) {
-            $title = JText::sprintf('JPAGETITLE', $app->getCfg('sitename'), $title);
+            $title = JText::sprintf('JPAGETITLE', $this->app->getCfg('sitename'), $title);
         } elseif ($this->app->getCfg('sitename_pagetitles', 0) == 2) {
-            $title = JText::sprintf('JPAGETITLE', $title, $app->getCfg('sitename'));
+            $title = JText::sprintf('JPAGETITLE', $title, $this->app->getCfg('sitename'));
         }
         $this->document->setTitle($title);
     }
@@ -45,6 +45,13 @@ class MaxposterViewList extends JView
     protected function setDocument()
     {
         $params = $this->app->getParams();
+        $default = $params->get('view_page_heading', '');
+        if (!$params->get('page_heading')) {
+            $params->set('page_heading', $default);
+        }
+        if (!$params->get('page_title') or ($this->app->getCfg('sitename') == $params->get('page_title'))) {
+            $params->set('page_title', $default);
+        }
 
         $this->setTitle($params->get('page_title'));
         if ($params->get('menu-meta_description')) {
@@ -88,6 +95,8 @@ class MaxposterViewList extends JView
         $active = JFactory::getApplication()->getMenu()->getActive();
         if (isset($active->query['layout'])) {
             $this->setLayout($active->query['layout']);
+        } elseif ($layout = $this->params->get('view_layout', 'default')) {
+            $this->setLayout($layout);
         }
 
         $this->setDocument();

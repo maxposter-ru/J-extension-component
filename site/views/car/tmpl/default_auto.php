@@ -12,7 +12,7 @@
 defined('_JEXEC') or die('Restricted access');
 ?>
 <?php # Заголовок ?>
-<h1><?php echo $this->vhelper->getName() ?></h1>
+<h1 class="componentheading"><?php echo $this->vhelper->getName() ?></h1>
 <?php if ($uin = $this->vhelper->get('./uin')) : ?>
 <span style="display:none;"><?php echo '<!-- UIN:', $uin, ' -->'; ?></span>
 <?php endif ?>

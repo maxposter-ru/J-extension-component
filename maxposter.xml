@@ -7,8 +7,8 @@
     <authorUrl>http://maxposter.ru</authorUrl>
     <copyright>Copyright 2010, All rights reserved.</copyright>
     <license>GNU/GPL</license>
-    <version>17.0.3</version>
-    <releaseDate>2012-04-03</releaseDate>
+    <version>17.0.3.1</version>
+    <releaseDate>2012-04-05</releaseDate>
     <releaseType>Beta</releaseType>
     <downloadUrl>http://maxposter.ru</downloadUrl>
     <description><![CDATA[Вывод каталога авто.]]></description>
@@ -53,7 +53,7 @@
     <administration>
         <menu>COM_MAXPOSTER_MENU</menu>
         <submenu>
-            <menu task="configuration.edit">COM_MAXPOSTER_CONFIGURATION</menu>
+            <menu task="photos" view="photos">COM_MAXPOSTER_PHOTO_SUBMENU_LIST</menu>
         </submenu>
 
         <files folder="admin">
@@ -62,6 +62,9 @@
             <filename>access.xml</filename>
             <filename>config.xml</filename>
             <filename>controller.php</filename>
+            <folder>controllers</folder>
+            <folder>models</folder>
+            <folder>tables</folder>
             <folder>views</folder>
             <folder>sql</folder>
         </files>
@@ -91,6 +94,8 @@
                 <field name="dealer_id" default="5" />
                 <field name="password" default="555" />
                 <!-- Отображение -->
+                <field name="view_layout" default="_::default" />
+                <field name="view_page_heading" default="" />
                 <field name="view_photo_source_original" default="0" />
                 <field name="view_photo_size_list" default="120x90" />
                 <field name="view_photo_size_vehicle_large" default="640x480" />

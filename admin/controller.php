@@ -10,20 +10,27 @@ jimport('joomla.application.component.controller');
  */
 class MaxposterController extends JController
 {
-	/**
-	 * display task
-	 *
-	 * @return void
-	 */
-	function display($cachable = false, $urlparams = false)
-	{
-		// set default view if not set
-		JRequest::setVar('view', JRequest::getCmd('view', 'maxposter'));
+    /**
+     * display task
+     *
+     * @return void
+     */
+    function display($cachable = false, $urlparams = false)
+    {
+        // set default view if not set
+        JRequest::setVar('view', JRequest::getCmd('view', 'maxposter'));
 
-		// call parent behavior
-		parent::display($cachable, $urlparams);
+        // call parent behavior
+        parent::display($cachable, $urlparams);
 
-		$document = JFactory::getDocument();
-		$document->setTitle(sprintf('%s: %s', $document->getTitle(), JText::_('COM_MAXPOSTER_ADMINISTRATION')));
-	}
+        JSubMenuHelper::addEntry(
+            JText::_('COM_MAXPOSTER_PHOTO_SUBMENU_LIST'),
+            'index.php?option=com_maxposter&view=photos',
+            true
+        );
+
+        $document = JFactory::getDocument();
+        $document->setTitle(sprintf('%s: %s', $document->getTitle(), JText::_('COM_MAXPOSTER_ADMINISTRATION')));
+    }
+
 }
