@@ -74,7 +74,7 @@ defined('_JEXEC') or die('Restricted access');
 </div>
 
 <?php # Фотографии ?>
-<?php if ($primary = $this->vhelper->get('./photos/photo[position() = 1]/@file_name')) : ?>
+<?php if ($primary = (string) $this->vhelper->get('./photos/photo[position() = 1]/@file_name')) : ?>
     <?php $isMultiDealer = strpos($this->params->get('dealer_id'), '_') ?>
     <div id="maxposter-auto-photos">
         <div id="maxposter-auto-photo-big">
@@ -82,7 +82,7 @@ defined('_JEXEC') or die('Restricted access');
                 <img src="<?php echo $this->vhelper->getPhotoPath($primary, array('640', '480'), $isMultiDealer) ?>" width="564" height="423" alt="<?php echo $this->escape($this->vhelper->getName()) ?>" title="<?php echo $this->escape($this->vhelper->getName()) ?>" />
             </a>
         </div>
-        <?php if ($photos = $this->vhelper->get('./photos/photo/@file_name')) : ?>
+        <?php if ($photos = (array) $this->vhelper->get('./photos/photo/@file_name')) : ?>
             <div id="maxposter-auto-photos-thumbnails">
                 <?php $i=0; foreach ($photos as $file) : ?>
                     <a href="<?php echo $this->vhelper->getPhotoPath($file, 'source', $isMultiDealer) ?>"<?php echo ((3 == ($i % 4)) ? ' class="last"' : '') ?>>
@@ -95,7 +95,7 @@ defined('_JEXEC') or die('Restricted access');
 <?php endif ?>
 
 <?php # опции авто ?>
-<?php if ($options = $this->vhelper->getOptions()) : ?>
+<?php if ($options = (array) $this->vhelper->getOptions()) : ?>
 <div class="maxposter-auto-features">
     <h2>Комплектация</h2>
     <ul>

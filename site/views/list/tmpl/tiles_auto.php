@@ -11,6 +11,7 @@ $priceStatus = (string) $this->vehicle->price['status'];
 $prevPrice = (string) $this->vehicle->price->previous;
 list($width, $height) = explode('x', $this->params->get('view_photo_size_list', '120x90'));
 ?>
+<div class="maxposter-item-wrapper">
 <div class="maxposter-photo">
     <a href="<?php echo JRoute::_(sprintf('index.php?option=com_maxposter&view=car&vehicle_id=%d', $this->vehicle['vehicle_id'])) ?>" title="<?php printf('%s %s', $this->vehicle->mark, $this->vehicle->model) ?>">
         <?php if ((string)$this->vehicle->photo) : ?>
@@ -54,4 +55,5 @@ list($width, $height) = explode('x', $this->params->get('view_photo_size_list', 
     <?php if ($this->params->get('tile_show_year', 1)) : ?>
     <p class="maxposter-year"><?php echo $this->vehicle->year ?> г.в.</p>
     <?php endif ?>
+</div>
 </div>

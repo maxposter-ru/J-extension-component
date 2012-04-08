@@ -11,7 +11,7 @@ class MaxPosterHelper
      */
     static public function getConfig()
     {
-        $app = JFactory::getApplication();
+        $app = JApplication::getInstance('site', $config = array(), $prefix = 'J');
         $component = JComponentHelper::getComponent('com_maxposter');
         $menu = $app->getMenu();
         $items = $menu->getItems('component_id', $component->id);
