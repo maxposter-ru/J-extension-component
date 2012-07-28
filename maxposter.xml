@@ -11,7 +11,7 @@
     <packagerurl>http://teleta.ru</packagerurl>
     <releaseDate>2012-04-09</releaseDate>
     <releaseType>Beta</releaseType>
-    <version>17.0.3.3</version>
+    <version>17.0.3.4</version>
     <downloadUrl>https://bitbucket.org/maxposter/jextension-component/get/master.zip</downloadUrl>
     <update>https://bitbucket.org/maxposter/jextensions/raw/gh-pages/component.xml</update>
     <description>COM_MAXPOSTER_XML_DESCRIPTION</description>
@@ -71,6 +71,8 @@
             <folder>tables</folder>
             <folder>views</folder>
             <folder>sql</folder>
+            <!-- used in vehicles module -->
+            <folder>elements</folder>
         </files>
 
         <languages folder="admin">
